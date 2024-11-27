@@ -1,0 +1,155 @@
+//// [tests/cases/compiler/classFieldForceTransform.ts] ////
+
+=== classFieldForceTransform.ts ===
+class A extends class Expr {} {
+>A : A
+>  : ^
+>class Expr {} : Expr
+>              : ^^^^
+>Expr : typeof Expr
+>     : ^^^^^^^^^^^
+
+    static publicField = 12;
+>publicField : number
+>            : ^^^^^^
+>12 : 12
+>   : ^^
+
+    static #privateField = 13;
+>#privateField : number
+>              : ^^^^^^
+>13 : 13
+>   : ^^
+
+    publicField = 14;
+>publicField : number
+>            : ^^^^^^
+>14 : 14
+>   : ^^
+
+    #privateField = 15;
+>#privateField : number
+>              : ^^^^^^
+>15 : 15
+>   : ^^
+}
+class B extends Number {
+>B : B
+>  : ^
+>Number : Number
+>       : ^^^^^^
+
+    static publicField = 12;
+>publicField : number
+>            : ^^^^^^
+>12 : 12
+>   : ^^
+
+    static #privateField = 13;
+>#privateField : number
+>              : ^^^^^^
+>13 : 13
+>   : ^^
+
+    publicField = 14;
+>publicField : number
+>            : ^^^^^^
+>14 : 14
+>   : ^^
+
+    #privateField = 15;
+>#privateField : number
+>              : ^^^^^^
+>15 : 15
+>   : ^^
+}
+class C extends Array {
+>C : C
+>  : ^
+>Array : any[]
+>      : ^^^^^
+
+    static publicField = 12;
+>publicField : number
+>            : ^^^^^^
+>12 : 12
+>   : ^^
+
+    static #privateField = 13;
+>#privateField : number
+>              : ^^^^^^
+>13 : 13
+>   : ^^
+
+    publicField = 14;
+>publicField : number
+>            : ^^^^^^
+>14 : 14
+>   : ^^
+
+    #privateField = 15;
+>#privateField : number
+>              : ^^^^^^
+>15 : 15
+>   : ^^
+}
+
+class D {
+>D : D
+>  : ^
+
+    static publicField = 12;
+>publicField : number
+>            : ^^^^^^
+>12 : 12
+>   : ^^
+
+    static #privateField = 13;
+>#privateField : number
+>              : ^^^^^^
+>13 : 13
+>   : ^^
+
+    publicField = 14;
+>publicField : number
+>            : ^^^^^^
+>14 : 14
+>   : ^^
+
+    #privateField = 15;
+>#privateField : number
+>              : ^^^^^^
+>15 : 15
+>   : ^^
+}
+class E extends D {
+>E : E
+>  : ^
+>D : D
+>  : ^
+
+    static publicField = 12;
+>publicField : number
+>            : ^^^^^^
+>12 : 12
+>   : ^^
+
+    static #privateField = 13;
+>#privateField : number
+>              : ^^^^^^
+>13 : 13
+>   : ^^
+
+    publicField = 14;
+>publicField : number
+>            : ^^^^^^
+>14 : 14
+>   : ^^
+
+    #privateField = 15;
+>#privateField : number
+>              : ^^^^^^
+>15 : 15
+>   : ^^
+}
+

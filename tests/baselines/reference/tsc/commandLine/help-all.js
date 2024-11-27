@@ -543,6 +543,11 @@ Emit design-type metadata for decorated declarations in source files.
 type: boolean
 default: false
 
+[94m--emitLegacyClassFields[39m
+Force polyfilled class fields.
+type: boolean
+default: false
+
 [94m--experimentalDecorators[39m
 Enable experimental support for legacy experimental decorators.
 type: boolean

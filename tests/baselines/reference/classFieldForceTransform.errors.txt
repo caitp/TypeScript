@@ -1,0 +1,50 @@
+classFieldForceTransform.ts(5,5): error TS2804: Duplicate identifier '#privateField'. Static and instance elements cannot share the same private name.
+classFieldForceTransform.ts(11,5): error TS2804: Duplicate identifier '#privateField'. Static and instance elements cannot share the same private name.
+classFieldForceTransform.ts(17,5): error TS2804: Duplicate identifier '#privateField'. Static and instance elements cannot share the same private name.
+classFieldForceTransform.ts(24,5): error TS2804: Duplicate identifier '#privateField'. Static and instance elements cannot share the same private name.
+classFieldForceTransform.ts(30,5): error TS2804: Duplicate identifier '#privateField'. Static and instance elements cannot share the same private name.
+
+
+==== classFieldForceTransform.ts (5 errors) ====
+    class A extends class Expr {} {
+        static publicField = 12;
+        static #privateField = 13;
+        publicField = 14;
+        #privateField = 15;
+        ~~~~~~~~~~~~~
+!!! error TS2804: Duplicate identifier '#privateField'. Static and instance elements cannot share the same private name.
+    }
+    class B extends Number {
+        static publicField = 12;
+        static #privateField = 13;
+        publicField = 14;
+        #privateField = 15;
+        ~~~~~~~~~~~~~
+!!! error TS2804: Duplicate identifier '#privateField'. Static and instance elements cannot share the same private name.
+    }
+    class C extends Array {
+        static publicField = 12;
+        static #privateField = 13;
+        publicField = 14;
+        #privateField = 15;
+        ~~~~~~~~~~~~~
+!!! error TS2804: Duplicate identifier '#privateField'. Static and instance elements cannot share the same private name.
+    }
+    
+    class D {
+        static publicField = 12;
+        static #privateField = 13;
+        publicField = 14;
+        #privateField = 15;
+        ~~~~~~~~~~~~~
+!!! error TS2804: Duplicate identifier '#privateField'. Static and instance elements cannot share the same private name.
+    }
+    class E extends D {
+        static publicField = 12;
+        static #privateField = 13;
+        publicField = 14;
+        #privateField = 15;
+        ~~~~~~~~~~~~~
+!!! error TS2804: Duplicate identifier '#privateField'. Static and instance elements cannot share the same private name.
+    }
+    

@@ -1,0 +1,84 @@
+//// [tests/cases/compiler/classFieldForceTransform.ts] ////
+
+=== classFieldForceTransform.ts ===
+class A extends class Expr {} {
+>A : Symbol(A, Decl(classFieldForceTransform.ts, 0, 0))
+>Expr : Symbol(Expr, Decl(classFieldForceTransform.ts, 0, 15))
+
+    static publicField = 12;
+>publicField : Symbol(A.publicField, Decl(classFieldForceTransform.ts, 0, 31))
+
+    static #privateField = 13;
+>#privateField : Symbol(A.#privateField, Decl(classFieldForceTransform.ts, 1, 28))
+
+    publicField = 14;
+>publicField : Symbol(A.publicField, Decl(classFieldForceTransform.ts, 2, 30))
+
+    #privateField = 15;
+>#privateField : Symbol(A.#privateField, Decl(classFieldForceTransform.ts, 3, 21))
+}
+class B extends Number {
+>B : Symbol(B, Decl(classFieldForceTransform.ts, 5, 1))
+>Number : Symbol(Number, Decl(lib.es5.d.ts, --, --), Decl(lib.es5.d.ts, --, --), Decl(lib.es5.d.ts, --, --), Decl(lib.es2020.number.d.ts, --, --))
+
+    static publicField = 12;
+>publicField : Symbol(B.publicField, Decl(classFieldForceTransform.ts, 6, 24))
+
+    static #privateField = 13;
+>#privateField : Symbol(B.#privateField, Decl(classFieldForceTransform.ts, 7, 28))
+
+    publicField = 14;
+>publicField : Symbol(B.publicField, Decl(classFieldForceTransform.ts, 8, 30))
+
+    #privateField = 15;
+>#privateField : Symbol(B.#privateField, Decl(classFieldForceTransform.ts, 9, 21))
+}
+class C extends Array {
+>C : Symbol(C, Decl(classFieldForceTransform.ts, 11, 1))
+>Array : Symbol(Array, Decl(lib.es5.d.ts, --, --), Decl(lib.es5.d.ts, --, --), Decl(lib.es2015.core.d.ts, --, --), Decl(lib.es2015.iterable.d.ts, --, --), Decl(lib.es2015.symbol.wellknown.d.ts, --, --) ... and 4 more)
+
+    static publicField = 12;
+>publicField : Symbol(C.publicField, Decl(classFieldForceTransform.ts, 12, 23))
+
+    static #privateField = 13;
+>#privateField : Symbol(C.#privateField, Decl(classFieldForceTransform.ts, 13, 28))
+
+    publicField = 14;
+>publicField : Symbol(C.publicField, Decl(classFieldForceTransform.ts, 14, 30))
+
+    #privateField = 15;
+>#privateField : Symbol(C.#privateField, Decl(classFieldForceTransform.ts, 15, 21))
+}
+
+class D {
+>D : Symbol(D, Decl(classFieldForceTransform.ts, 17, 1))
+
+    static publicField = 12;
+>publicField : Symbol(D.publicField, Decl(classFieldForceTransform.ts, 19, 9))
+
+    static #privateField = 13;
+>#privateField : Symbol(D.#privateField, Decl(classFieldForceTransform.ts, 20, 28))
+
+    publicField = 14;
+>publicField : Symbol(D.publicField, Decl(classFieldForceTransform.ts, 21, 30))
+
+    #privateField = 15;
+>#privateField : Symbol(D.#privateField, Decl(classFieldForceTransform.ts, 22, 21))
+}
+class E extends D {
+>E : Symbol(E, Decl(classFieldForceTransform.ts, 24, 1))
+>D : Symbol(D, Decl(classFieldForceTransform.ts, 17, 1))
+
+    static publicField = 12;
+>publicField : Symbol(E.publicField, Decl(classFieldForceTransform.ts, 25, 19))
+
+    static #privateField = 13;
+>#privateField : Symbol(E.#privateField, Decl(classFieldForceTransform.ts, 26, 28))
+
+    publicField = 14;
+>publicField : Symbol(E.publicField, Decl(classFieldForceTransform.ts, 27, 30))
+
+    #privateField = 15;
+>#privateField : Symbol(E.#privateField, Decl(classFieldForceTransform.ts, 28, 21))
+}
+
