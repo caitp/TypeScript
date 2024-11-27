@@ -370,12 +370,15 @@ export function transformClassFields(context: TransformationContext): (x: Source
     // Always transform field initializers using Set semantics when `useDefineForClassFields: false`.
     const shouldTransformInitializersUsingSet = !useDefineForClassFields;
 
+    // Always transform field initializers regardless of language version
+    const forceTransformClassFields = !!compilerOptions.emitLegacyClassFields;
+
     // Transform field initializers using Define semantics when `useDefineForClassFields: true` and target < ES2022.
     const shouldTransformInitializersUsingDefine = useDefineForClassFields && languageVersion < ScriptTarget.ES2022;
-    const shouldTransformInitializers = shouldTransformInitializersUsingSet || shouldTransformInitializersUsingDefine;
+    const shouldTransformInitializers = shouldTransformInitializersUsingSet || shouldTransformInitializersUsingDefine || forceTransformClassFields;
 
     // We need to transform private members and class static blocks when target < ES2022.
-    const shouldTransformPrivateElementsOrClassStaticBlocks = languageVersion < ScriptTarget.ES2022;
+    const shouldTransformPrivateElementsOrClassStaticBlocks = languageVersion < ScriptTarget.ES2022 || forceTransformClassFields;
 
     // We need to transform `accessor` fields when target < ESNext.
     // We may need to transform `accessor` fields when `useDefineForClassFields: false`

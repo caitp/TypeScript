@@ -1584,6 +1584,15 @@ const commandOptionsWithoutBuild: CommandLineOption[] = [
         defaultValueDescription: Diagnostics.true_for_ES2022_and_above_including_ESNext,
     },
     {
+        name: "emitLegacyClassFields",
+        type: "boolean",
+        affectsEmit: true,
+        affectsBuildInfo: true,
+        category: Diagnostics.Language_and_Environment,
+        description: Diagnostics.Force_polyfilled_class_fields,
+        defaultValueDescription: false,
+    },
+    {
         name: "preserveValueImports",
         type: "boolean",
         affectsEmit: true,
